@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template;
+namespace exface\NativeDroid2Template\Template;
 
 use exface\Core\Templates\AbstractAjaxTemplate\AbstractAjaxTemplate;
 use exface\Core\Interfaces\Actions\ActionInterface;

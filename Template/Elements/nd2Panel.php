@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 class nd2Panel extends nd2Container
 {

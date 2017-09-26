@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 use exface\Core\Widgets\DialogButton;
 use exface\Core\Interfaces\Actions\ActionInterface;

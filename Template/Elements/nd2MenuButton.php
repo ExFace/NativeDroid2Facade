@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 use exface\Core\Widgets\Button;
 use exface\Core\Templates\AbstractAjaxTemplate\Elements\JqueryButtonTrait;
@@ -51,7 +51,7 @@ HTML;
     /**
      * {@inheritdoc}
      *
-     * @see \exface\JQueryMobileTemplate\Template\Elements\nd2AbstractElement::generateJs()
+     * @see \exface\NativeDroid2Template\Template\Elements\nd2AbstractElement::generateJs()
      */
     function generateJs($jqm_page_id = null)
     {

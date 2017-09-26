@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 use exface\Core\Templates\AbstractAjaxTemplate\Elements\JqueryHtmlTrait;
 

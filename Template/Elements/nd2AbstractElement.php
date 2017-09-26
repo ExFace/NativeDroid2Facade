@@ -1,8 +1,8 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 use exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement;
-use exface\JQueryMobileTemplate\Template\JQueryMobileTemplate;
+use exface\NativeDroid2Template\Template\NativeDroid2Template;
 
 abstract class nd2AbstractElement extends AbstractJqueryElement
 {
@@ -61,7 +61,7 @@ abstract class nd2AbstractElement extends AbstractJqueryElement
      * {@inheritdoc}
      *
      * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::getTemplate()
-     * @return JQueryMobileTemplate
+     * @return NativeDroid2Template
      */
     public function getTemplate()
     {

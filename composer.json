@@ -1,6 +1,6 @@
 {
-	"name" : "exface/JQueryMobileTemplate",
-	"description" : "UI Template for the ExFace web application plattform based on jQuery Mobile",
+	"name" : "exface/NativeDroid2Template",
+	"description" : "Material design UI template for the ExFace web ap plattform based on jQuery mobile and nativeDroid2",
 	"type" : "library",
 	"license" : "GPL-3.0+",
 	"authors" : [{
@@ -10,7 +10,7 @@
 		}
 	],
 	"support" : {
-		"issues" : "https://github.com/exface/JQueryMobileTemplate/issues"
+		"issues" : "https://github.com/exface/NativeDroid2Template/issues"
 	},
 	"require" : {
 		"exface/core": "~0.1",
@@ -21,7 +21,7 @@
 		"npm-asset/screenfull" : "~3.0"
 	},
     "autoload": {
-        "psr-4": { "exface\\JQueryMobileTemplate\\": "" },
+        "psr-4": { "exface\\NativeDroid2Template\\": "" },
         "exclude-from-classmap": [
             "/Config/",
             "/Translations/",

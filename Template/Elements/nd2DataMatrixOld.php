@@ -1,5 +1,5 @@
 <?php
-namespace exface\JQueryMobileTemplate\Template\Elements;
+namespace exface\NativeDroid2Template\Template\Elements;
 
 class nd2DataMatrixOld extends nd2DataTable
 {
@@ -8,7 +8,7 @@ class nd2DataMatrixOld extends nd2DataTable
 
     /**
      *
-     * @see \exface\JQueryMobileTemplate\Template\Elements\nd2AbstractElement::getWidget()
+     * @see \exface\NativeDroid2Template\Template\Elements\nd2AbstractElement::getWidget()
      * @return \exface\Core\Widgets\DataMatrix
      */
     public function getWidget()
