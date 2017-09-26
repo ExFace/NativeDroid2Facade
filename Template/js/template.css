@@ -19,6 +19,11 @@
 .ui-dialog .ui-dialog-contain { margin-bottom: 0; margin-right: 10px; }
 .ui-dialog-transparent-bg {display: block !important; opacity: 0.4;}
 
+/* left and right panels*/
+.ui-panel-header {margin: -16px -16px 15px -16px; height: 40px;}
+.ui-header.ui-panel-header h2 {margin: 0 10%;}
+		
+
 /* DataTables */
 table.dataTable.no-footer {border-bottom: none !important;}
 .dataTables_wrapper.no-footer .dataTables_scrollBody, table.dataTable thead th, table.dataTable thead td {border-bottom: 1px solid rgba(0,0,0,.12)}
