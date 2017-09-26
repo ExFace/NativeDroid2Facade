@@ -39,7 +39,7 @@ HTML;
         }
         return <<<HTML
         
-        <ul id="{$this->getId()}" data-role="nd2tabs" data-swipe="true">
+        <ul id="{$this->getId()}" data-role="nd2tabs">
             {$headers}
         </ul>
         
