@@ -1,0 +1,40 @@
+{
+	"WIDTH_RELATIVE_UNIT": 400,
+	"WIDTH_DEFAULT": 1,
+	"HEIGHT_RELATIVE_UNIT": 32,
+	"HEIGHT_DEFAULT": 1,
+	"HINT_MAX_CHARS_IN_LINE": 60,
+	"FORBIDDEN_CHARS_IN_ELEMENT_ID": ["/", "(", ")", "."],
+	"FORBIDDEN_CHARS_IN_FUNCTION_PREFIX": ["-", "."],
+	"DEFAULT_AJAX_URL": "exface/exface.php?exftpl=exface.JQueryMobileTemplate",
+	"DATAGRID_SHOW_FOOTER_BY_DEFAULT": false,
+	
+	"ICON_CLASSES.DEFAULT_CLASS_PREFIX": "fa fa-",
+    "ICON_CLASSES.EDIT": "content-create",
+    "ICON_CLASSES.REMOVE": "action-delete",
+    "ICON_CLASSES.ADD": "content-add",
+    "ICON_CLASSES.SAVE": "action-done",
+    "ICON_CLASSES.CANCEL": "content-clear",
+    "ICON_CLASSES.RELOAD": "navigation-refresh",
+    "ICON_CLASSES.COPY": "content-content-copy",
+    "ICON_CLASSES.MORE": "navigation-more-horiz",
+    "ICON_CLASSES.LINK": "action-input",
+    
+    "WIDGET.ALL.DEFAULT_ALIGNMENT": "left",
+	
+	"WIDGET.CHART.PAGE_SIZE": 20,
+    
+	"WIDGET.DATACONFIGURATOR.COLUMNS_BY_DEFAULT": 1,
+    
+    "WIDGET.DATALIST.PAGE_SIZE": 20,
+	
+	"WIDGET.DATATABLE.PAGE_SIZE": 20,
+    
+    "WIDGET.DIALOG.COLUMNS_BY_DEFAULT": 2,
+    
+    "WIDGET.PANEL.COLUMNS_BY_DEFAULT": 3,
+    
+    "WIDGET.TABS.COLUMNS_BY_DEFAULT": 3,
+    
+    "JAVASCRIPT_DEBUG_LEVEL": 0
+}

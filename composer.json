@@ -1,0 +1,31 @@
+{
+	"name" : "exface/JQueryMobileTemplate",
+	"description" : "UI Template for the ExFace web application plattform based on jQuery Mobile",
+	"type" : "library",
+	"license" : "GPL-3.0+",
+	"authors" : [{
+			"name" : "Andrej Kabachnik",
+			"email" : "kabachnik@gmail.com",
+			"role" : "Creator"
+		}
+	],
+	"support" : {
+		"issues" : "https://github.com/exface/JQueryMobileTemplate/issues"
+	},
+	"require" : {
+		"exface/core": "~0.1",
+		"kabachello/jquery-nativedroid2": "dev-master", 
+		"bower-asset/masonry" : "~4",
+		"bower-asset/datatables.net" : "~1.10.12",
+		"bower-asset/datatables.net-dt" : "~1.10.12",
+		"npm-asset/screenfull" : "~3.0"
+	},
+    "autoload": {
+        "psr-4": { "exface\\JQueryMobileTemplate\\": "" },
+        "exclude-from-classmap": [
+            "/Config/",
+            "/Translations/",
+            "/Model/"
+        ]
+    }
+}
