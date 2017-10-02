@@ -22,7 +22,9 @@
 /* left and right panels*/
 .ui-panel-header {margin: -16px -16px 15px -16px; height: 40px;}
 .ui-header.ui-panel-header h2 {margin: 0 10%;}
-		
+
+/* Toasts */
+.nd2-toast .nd2-toast-message {width: 100%}
 
 /* DataTables */
 table.dataTable.no-footer {border-bottom: none !important;}

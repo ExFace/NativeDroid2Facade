@@ -9,6 +9,8 @@
 	"DEFAULT_AJAX_URL": "exface/exface.php?exftpl=exface.NativeDroid2Template",
 	"DATAGRID_SHOW_FOOTER_BY_DEFAULT": false,
 	
+	"GENERAL.TOAST_TIME_TO_LIVE_MS": "5000", 
+	
 	"ICON_CLASSES.DEFAULT_CLASS_PREFIX": "fa fa-",
     "ICON_CLASSES.EDIT": "content-create",
     "ICON_CLASSES.REMOVE": "action-delete",
