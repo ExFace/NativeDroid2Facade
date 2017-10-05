@@ -8,9 +8,13 @@ use exface\Core\Templates\AbstractAjaxTemplate\Elements\JqueryToolbarsTrait;
 use exface\Core\Widgets\Button;
 use exface\Core\Widgets\MenuButton;
 use exface\Core\Widgets\ButtonGroup;
+use exface\Core\Widgets\DataTable;
+use exface\Core\Factories\WidgetFactory;
 
 /**
  *
+ * @method DataTable getWidget()
+ * 
  * @author PATRIOT
  *        
  */
@@ -42,6 +46,25 @@ class nd2DataTable extends nd2AbstractElement
         /* @var $widget \exface\Core\Widgets\DataTable */
         $widget = $this->getWidget();
         
+        // Render the context menu BEFORE the toolbars, because the toolbars
+        // will create more-buttons-menus for optional buttons, but we want
+        // to make them still appear at their original places in the menu.
+        $context_menu = $this->buildHtmlContextMenu();
+        
+        // Move promoted buttons to a separate toolbar with position=floating
+        // to render them as a material design floating action button
+        /* @var $floating_toolbar \exface\Core\Widgets\DataToolbar */
+        $floating_toolbar = WidgetFactory::create($widget->getPage(), 'DataToolbar', $widget);
+        $floating_toolbar->setPosition(nd2DataToolbar::POSITION_FLOATING);
+        $main_toolbar = $widget->getToolbarMain();
+        foreach ($main_toolbar->getButtons(function ($b) {return $b->getVisibility() === EXF_WIDGET_VISIBILITY_PROMOTED;}) as $btn){
+            $floating_toolbar->addButton($btn);
+            $main_toolbar->removeButton($btn);
+        }
+        if ($floating_toolbar->hasButtons()){
+            $widget->addToolbar($floating_toolbar);
+        }
+        
         // Toolbars
         $footer = $this->buildHtmlFooter($this->buildHtmlToolbars());
         $header = $this->buildHtmlHeader();
@@ -56,10 +79,15 @@ class nd2DataTable extends nd2AbstractElement
     </div>
     {$footer}
 </div>
-{$this->buildHtmlContextMenu()}
+{$context_menu}
 HTML;
         
         return $output;
+    }
+    
+    protected function movePromotedButtonsToFloatingActionMenu()
+    {
+        
     }
 
     public function generateJs($jqm_page_id = null)
