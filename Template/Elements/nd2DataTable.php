@@ -187,14 +187,14 @@ JS;
         foreach ($this->getWidget()->getButtons() as $b) {
             /* @var $b \exface\Core\Widgets\Button */
             if (! $b->isHidden() && (! $b->getAction() || $b->getAction()->getInputRowsMin() === 1)) {
-                $buttons_html .= '<li ><a href="#" onclick="' . $this->getTemplate()->getElement($b)->buildJsClickFunctionName() . '(); $(this).parent().parent().parent().popup(\'close\');"><i class="' . $this->buildCssIconClass($b->getIconName()) . '"></i> ' . $b->getCaption() . '</a></li>';
+                $buttons_html .= '<li data-icon="false"><a href="#" onclick="' . $this->getTemplate()->getElement($b)->buildJsClickFunctionName() . '(); $(this).parent().parent().parent().popup(\'close\');"><i class="' . $this->buildCssIconClass($b->getIconName()) . '"></i> ' . $b->getCaption() . '</a></li>';
             }
         }
         
         if ($buttons_html) {
             $output = <<<HTML
 <div data-role="popup" id="{$this->getId()}_context_menu" class="exf-context-menu">
-	<ul data-role="listview" data-inset="true">
+	<ul data-role="listview" data-inset="false">
 		{$buttons_html}
 	</ul>
 </div>
