@@ -1,4 +1,4 @@
-	/* General */
+/* General */
 .text-right {text-align: right;}
 .text-left {text-align: left;}
 .text-center {text-align: center;}
@@ -25,6 +25,9 @@
 
 /* Toasts */
 .nd2-toast .nd2-toast-message {width: 100%}
+
+/* Buttons */
+.mfb-component__wrap .ui-link {color: white;}
 
 /* DataTables */
 table.dataTable.no-footer {border-bottom: none !important;}
