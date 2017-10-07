@@ -31,7 +31,7 @@
 
 /* DataTables */
 table.dataTable.no-footer {border-bottom: none !important;}
-.dataTables_wrapper.no-footer .dataTables_scrollBody, table.dataTable thead th, table.dataTable thead td {border-bottom: 1px solid rgba(0,0,0,.12)}
+.dataTables_wrapper.no-footer .dataTables_scrollBody, table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {border-bottom: 1px solid rgba(0,0,0,.12)}
 .tableFooter {padding: 5px 0}
 .dataTable .detailRow table {width:initial; margin: initial;}
 .dataTable td .ui-checkbox{margin: 0;}
@@ -41,6 +41,7 @@ table.dataTable.no-footer {border-bottom: none !important;}
 
 /* Toolbars */
 .exf-quick-search .ui-btn {margin: 0;}
+.exf-toolbar {display: inline-block; vertical-align: bottom; min-height: 42px;}
 
 /* Tabs */
 ul.nd2Tabs {margin-left: 20px !important;} 
