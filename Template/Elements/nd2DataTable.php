@@ -154,6 +154,8 @@ function {$this->getId()}_drawPagination(){
 }
 
 {$this->getTemplate()->getElement($widget->getConfiguratorWidget())->generateJs($jqm_page_id)}
+	
+{$this->buildJsRowGroupFunctions()}
     
 {$this->buildJsButtons()}
 
@@ -168,6 +170,11 @@ JS;
         // $includes[] = '<link rel="stylesheet" type="text/css" href="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables/media/css/jquery.dataTables.min.css">';
         // $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables/media/js/jquery.dataTables.min.js"></script>';
         $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables.exface.helpers.js"></script>';
+        
+        if ($this->getWidget()->hasRowGroups()){
+            $includes[] = '<script type="text/javascript" src="exface/vendor/bower-asset/datatables.net-rowgroup/js/dataTables.rowgroup.min.js"></script>';
+            $includes[] = '<link rel="stylesheet" type="text/css" href="exface/vendor/bower-asset/datatables.net-rowgroup-bs/css/rowGroup.bootstrap.min.css">';
+        }
         
         return $includes;
     }
@@ -268,8 +275,8 @@ HTML;
         $output = '';
             // Select a row on tap. Make sure no other row is selected
             $output .= "
-                $('#{$this->getId()} tbody').on( 'taphold', 'tr', function(e){
-                    {$this->getId()}_table.row($(e.target).closest('tr')).select();
+                $('#{$this->getId()} tbody').on( 'taphold', '{$this->buildCssSelectorDataRows()}', function(e){
+                    {$this->getId()}_table.row($(e.target).closest('{$this->buildCssSelectorDataRows()}')).select();
                 } );
              ";
         return $output;
@@ -319,16 +326,6 @@ JS;
         return $this->editors;
     }
     
-    public function getRowDetailsExpandIcon()
-    {
-        return 'ui-icon-content-add-circle-outline';
-    }
-    
-    public function getRowDetailsCollapseIcon()
-    {
-        return 'ui-icon-content-remove-circle-outline';
-    }
-    
     public function buildJsFilterIndicatorUpdater()
     {
         // TODO
@@ -345,7 +342,7 @@ JS;
         // Listen for a long tap to open the context menu. Also trigger a click event, but enforce row selection.
         if ($this->getWidget()->getContextMenuEnabled()) {
             $output .= "
-				$('#{$this->getId()} tbody').on( 'taphold', 'tr', function (event) {
+				$('#{$this->getId()} tbody').on( 'taphold', '{$this->buildCssSelectorDataRows()}', function (event) {
 					$(this).trigger('click');
 					$(this).addClass('selected');
 					$('#{$this->getId()}_context_menu').popup('open', {x: exfTapCoordinates.X, y: exfTapCoordinates.Y});
