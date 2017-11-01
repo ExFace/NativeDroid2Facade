@@ -34,7 +34,7 @@ class nd2DataToolbar extends nd2Toolbar
         // Position = FLOATING means, we need a material design floating action button or menu
         if ($widget->countButtons() === 1){
             $btn = $widget->getButton(0);
-            $main_button_icon_class = $this->buildCssIconClass($btn->getIconName());
+            $main_button_icon_class = $this->buildCssIconClass($btn->getIcon());
             $main_button_icon_class_active = $main_button_icon_class;
             $main_button_properties = 'data-mfb-label="' . $btn->getCaption() . '" onclick="' . $this->getTemplate()->getElement($btn)->buildJsClickFunctionName() . '()"';
         } else {
@@ -46,7 +46,7 @@ class nd2DataToolbar extends nd2Toolbar
 
       <li>
         <a href="#" data-mfb-label="{$btn->getCaption()}" class="mfb-component__button--child" onclick="{$this->getTemplate()->getElement($btn)->buildJsClickFunctionName()}();">
-          <i class="mfb-component__child-icon {$this->buildCssIconClass($btn->getIconName())}"></i>
+          <i class="mfb-component__child-icon {$this->buildCssIconClass($btn->getIcon())}"></i>
         </a>
       </li>
 
