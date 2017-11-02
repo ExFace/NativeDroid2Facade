@@ -80,7 +80,7 @@ class nd2Button extends nd2AbstractElement
         // The problem is, we would have to fetch the page via AJAX and insert it into the DOM, which
         // would probably mean, that we have to take care of removing it ourselves (to save memory)...
         return $this->buildJsRequestDataCollector($action, $input_element) . "
-					$.mobile.pageContainer.pagecontainer('change', '" . $this->getAjaxUrl() . "&resource=" . $widget->getPageId() . "&element=" . $widget->getId() . "&action=" . $widget->getActionAlias() . "&data=' + encodeURIComponent(JSON.stringify(requestData)));
+					$.mobile.pageContainer.pagecontainer('change', '" . $this->getAjaxUrl() . "&resource=" . $this->getWidget()->getPage()->getAliasWithNamespace() . "&element=" . $widget->getId() . "&action=" . $widget->getActionAlias() . "&data=' + encodeURIComponent(JSON.stringify(requestData)));
 					";
     }
 
@@ -90,9 +90,9 @@ class nd2Button extends nd2AbstractElement
     protected function buildJsClickShowWidget(iShowWidget $action, AbstractJqueryElement $input_element)
     {
         $widget = $this->getWidget();
-        if ($action->getPageId() != $this->getPageId()) {
+        if ($action->getPageAlias() != $this->getPageId()) {
             $output = $this->buildJsRequestDataCollector($action, $input_element) . "
-				 	$.mobile.pageContainer.pagecontainer('change', '" . $this->getTemplate()->createLinkInternal($action->getPageId()) . "?prefill={\"meta_object_id\":\"" . $widget->getMetaObject()->getId() . "\",\"rows\":[{\"" . $widget->getMetaObject()->getUidAttributeAlias() . "\":' + requestData.rows[0]." . $widget->getMetaObject()->getUidAttributeAlias() . " + '}]}');";
+				 	$.mobile.pageContainer.pagecontainer('change', '" . $this->getTemplate()->createLinkInternal($action->getPageAlias()) . "?prefill={\"meta_object_id\":\"" . $widget->getMetaObject()->getId() . "\",\"rows\":[{\"" . $widget->getMetaObject()->getUidAttributeAlias() . "\":' + requestData.rows[0]." . $widget->getMetaObject()->getUidAttributeAlias() . " + '}]}');";
         }
         return $output;
     }*/

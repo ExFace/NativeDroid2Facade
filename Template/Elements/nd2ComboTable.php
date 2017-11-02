@@ -37,7 +37,7 @@ class nd2ComboTable extends nd2Input
         /* @var $widget \exface\Core\Widgets\ComboTable */
         $widget = $this->getWidget();
         
-        $jqm_page_id = ! is_null($jqm_page_id) ? $jqm_page_id : $this->getPageId();
+        $jqm_page_id = ! is_null($jqm_page_id) ? $jqm_page_id : $this->getJqmPageId();
         
         $output = <<<JS
 		
