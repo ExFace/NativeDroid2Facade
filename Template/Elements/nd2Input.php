@@ -14,7 +14,7 @@ class nd2Input extends nd2AbstractElement
 
     public function generateHtml()
     {
-        $output = '	<div class="fitem exf_input" title="' . $this->buildHintText() . '">
+        $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
 						<label for="' . $this->getId() . '">' . $this->getWidget()->getCaption() . '</label>
 						<input data-clear-btn="true"
 								type="' . $this->getElementType() . '"

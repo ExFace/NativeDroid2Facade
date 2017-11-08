@@ -12,7 +12,7 @@ class nd2CheckBox extends nd2AbstractElement
 
     function generateHtml()
     {
-        $output = '	<div class="fitem exf_input" title="' . $this->buildHintText() . '">
+        $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
 						<label>' . $this->getWidget()->getCaption() . '</label>
 						<input type="checkbox" value="1" 
 								form="" 

@@ -20,7 +20,7 @@ class nd2ComboTable extends nd2Input
 
     function generateHtml()
     {
-        $output = '	<div class="fitem exf_input" title="' . $this->buildHintText() . '">
+        $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
 						<label for="' . $this->getId() . '">' . $this->getWidget()->getCaption() . '</label>
 						<input id="' . $this->getId() . '_autocomplete_input" type="text" data-clear-btn="true" class="ui-input-has-clear" value="' . $this->getWidget()->getValueText() . '" />
 						<input type="hidden"		
