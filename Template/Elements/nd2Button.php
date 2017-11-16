@@ -90,7 +90,7 @@ class nd2Button extends nd2AbstractElement
     protected function buildJsClickShowWidget(iShowWidget $action, AbstractJqueryElement $input_element)
     {
         $widget = $this->getWidget();
-        if ($action->getPageAlias() != $this->getPageId()) {
+        if (! $widget->getPage()->is($action->getPageAlias())) {
             $output = $this->buildJsRequestDataCollector($action, $input_element) . "
 				 	$.mobile.pageContainer.pagecontainer('change', '" . $this->getTemplate()->createLinkInternal($action->getPageAlias()) . "?prefill={\"meta_object_id\":\"" . $widget->getMetaObject()->getId() . "\",\"rows\":[{\"" . $widget->getMetaObject()->getUidAttributeAlias() . "\":' + requestData.rows[0]." . $widget->getMetaObject()->getUidAttributeAlias() . " + '}]}');";
         }
