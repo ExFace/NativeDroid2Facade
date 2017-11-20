@@ -1,7 +1,7 @@
 <?php
 namespace exface\NativeDroid2Template\Template\Elements;
 
-class nd2InputGroup extends nd2Panel
+class nd2WidgetGroup extends nd2Panel
 {
 
     public function generateHtml()
