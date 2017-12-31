@@ -56,7 +56,7 @@ $(document).on('pagecreate', '#{$jqm_page_id}', function() {
                 url: "{$this->getAjaxUrl()}",
                 dataType: "json",
                 data: {
-                	action: "{$widget->getLazyLoadingAction()}",
+                	action: "{$widget->getLazyLoadingActionAlias()}",
                 	resource: "{$this->getPageId()}",
 					element: "{$widget->getTable()->getId()}",
 					object: "{$widget->getTable()->getMetaObject()->getId()}",
