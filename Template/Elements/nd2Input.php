@@ -3,7 +3,7 @@ namespace exface\NativeDroid2Template\Template\Elements;
 
 use exface\Core\Interfaces\Actions\ActionInterface;
 
-class nd2Input extends nd2AbstractElement
+class nd2Input extends nd2Value
 {
 
     protected function init()
@@ -14,17 +14,15 @@ class nd2Input extends nd2AbstractElement
 
     public function generateHtml()
     {
-        $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
-						<label for="' . $this->getId() . '">' . $this->getWidget()->getCaption() . '</label>
-						<input data-clear-btn="true"
+        $output = $this->buildHtmlLabel() . '	    <input data-clear-btn="true"
 								type="' . $this->getElementType() . '"
-								name="' . $this->getWidget()->getAttributeAlias() . '" 
-								value="' . $this->escapeString($this->getWidget()->getValue()) . '" 
-								id="' . $this->getId() . '"  
+								name="' . $this->getWidget()->getAttributeAlias() . '"
+								value="' . $this->escapeString($this->getWidget()->getValue()) . '"
+								id="' . $this->getId() . '"
 								' . ($this->getWidget()->isRequired() ? 'required="true" ' : '') . '
-								' . ($this->getWidget()->isDisabled() ? 'disabled="disabled" ' : '') . '/>
-					</div>';
-        return $output;
+								' . ($this->getWidget()->isDisabled() ? 'disabled="disabled" ' : '') . '/>';
+        
+        return $this->buildHtmlGridItemWrapper($output);
     }
 
     public function generateJs($jqm_page_id = null)

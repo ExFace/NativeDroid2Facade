@@ -166,7 +166,8 @@ JS;
 
     public function generateHeaders()
     {
-        $includes = array();
+        $includes = parent::generateHeaders();
+        
         // $includes[] = '<link rel="stylesheet" type="text/css" href="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables/media/css/jquery.dataTables.min.css">';
         // $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables/media/js/jquery.dataTables.min.js"></script>';
         $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Template/js/DataTables.exface.helpers.js"></script>';
