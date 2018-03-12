@@ -4,7 +4,7 @@ namespace exface\NativeDroid2Template\Template\Elements;
 class nd2Panel extends nd2Container
 {
 
-    function generateHtml()
+    function buildHtml()
     {
         $output = '
 				<div class="panel" 
@@ -18,7 +18,7 @@ class nd2Panel extends nd2Container
     {
         $output = '';
         foreach ($this->getWidget()->getButtons() as $btn) {
-            $output .= $this->getTemplate()->generateHtml($btn);
+            $output .= $this->getTemplate()->buildHtml($btn);
         }
         
         return $output;
@@ -28,7 +28,7 @@ class nd2Panel extends nd2Container
     {
         $output = '';
         foreach ($this->getWidget()->getButtons() as $btn) {
-            $output .= $this->getTemplate()->generateJs($btn, $jqm_page_id);
+            $output .= $this->getTemplate()->buildJs($btn, $jqm_page_id);
         }
         
         return $output;

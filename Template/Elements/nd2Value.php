@@ -26,9 +26,9 @@ class nd2Value extends nd2AbstractElement
     /**
      * 
      * {@inheritDoc}
-     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::generateHtml()
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
      */
-    public function generateHtml()
+    public function buildHtml()
     {
         $output = <<<HTML
 
@@ -71,7 +71,7 @@ HTML;
 HTML;
     }
 
-    public function generateJs($jqm_page_id = null)
+    public function buildJs($jqm_page_id = null)
     {
         return '';
     }

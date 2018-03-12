@@ -12,7 +12,7 @@ class nd2Input extends nd2Value
         $this->setElementType('text');
     }
 
-    public function generateHtml()
+    public function buildHtml()
     {
         $output = $this->buildHtmlLabel() . '	    <input data-clear-btn="true"
 								type="' . $this->getElementType() . '"
@@ -25,7 +25,7 @@ class nd2Input extends nd2Value
         return $this->buildHtmlGridItemWrapper($output);
     }
 
-    public function generateJs($jqm_page_id = null)
+    public function buildJs($jqm_page_id = null)
     {
         return '';
     }

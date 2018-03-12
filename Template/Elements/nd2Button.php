@@ -21,7 +21,7 @@ class nd2Button extends nd2AbstractElement
     
     use JqueryButtonTrait;
 
-    function generateJs($jqm_page_id = null)
+    function buildJs($jqm_page_id = null)
     {
         $output = '';
         $hotkey_handlers = array();
@@ -57,9 +57,9 @@ class nd2Button extends nd2AbstractElement
     /**
      * 
      * {@inheritDoc}
-     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::generateHtml()
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
      */
-    function generateHtml()
+    function buildHtml()
     {
         /* @var $widget \exface\Core\Widgets\Button */
         $widget = $this->getWidget();

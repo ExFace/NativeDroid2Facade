@@ -4,7 +4,7 @@ namespace exface\NativeDroid2Template\Template\Elements;
 class nd2Dialog extends nd2Panel
 {
 
-    function generateHtml()
+    function buildHtml()
     {
         /* @var $widget \exface\Core\Widgets\Dialog */
         $widget = $this->getWidget();

@@ -12,7 +12,7 @@ use exface\Core\Widgets\Tabs;
  */
 class nd2Tabs extends nd2Container
 {
-    public function generateHtml(){        
+    public function buildHtml(){        
         return $this->buildHtmlTabHeaders() . $this->buildHtmlTabBodies();
     }
     

@@ -12,7 +12,7 @@ use exface\Core\Widgets\Tabs;
  */
 class nd2Tab extends nd2Panel
 {    
-    public function generateHtml()
+    public function buildHtml()
     {
         return $this->buildHtmlBody();
     }

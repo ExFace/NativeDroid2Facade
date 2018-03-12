@@ -28,9 +28,9 @@ class nd2Display extends nd2Value implements JsValueDecoratingInterface
     /**
      * 
      * {@inheritDoc}
-     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::generateHtml()
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
      */
-    public function generateHtml()
+    public function buildHtml()
     {
         $output = <<<HTML
 

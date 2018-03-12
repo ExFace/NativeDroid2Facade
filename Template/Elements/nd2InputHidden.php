@@ -10,7 +10,7 @@ class nd2InputHidden extends nd2Input
         $this->setElementType('hidden');
     }
 
-    public function generateHtml()
+    public function buildHtml()
     {
         $output = '<input type="hidden" 
 								name="' . $this->getWidget()->getAttributeAlias() . '" 

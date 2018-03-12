@@ -4,7 +4,7 @@ namespace exface\NativeDroid2Template\Template\Elements;
 class nd2WidgetGroup extends nd2Panel
 {
 
-    public function generateHtml()
+    public function buildHtml()
     {
         $children_html = $this->buildHtmlForChildren();
         

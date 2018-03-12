@@ -22,9 +22,9 @@ class nd2MenuButton extends nd2AbstractElement
     /**
      * 
      * {@inheritDoc}
-     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::generateHtml()
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
      */
-    function generateHtml()
+    function buildHtml()
     {
         $widget = $this->getWidget();
         
@@ -51,9 +51,9 @@ HTML;
     /**
      * {@inheritdoc}
      *
-     * @see \exface\NativeDroid2Template\Template\Elements\nd2AbstractElement::generateJs()
+     * @see \exface\NativeDroid2Template\Template\Elements\nd2AbstractElement::buildJs()
      */
-    function generateJs($jqm_page_id = null)
+    function buildJs($jqm_page_id = null)
     {
         $output = '';
         foreach ($this->getWidget()->getButtons() as $b) {

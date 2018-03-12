@@ -4,12 +4,12 @@ namespace exface\NativeDroid2Template\Template\Elements;
 class nd2BasicElement extends nd2AbstractElement
 {
 
-    function generateHtml()
+    function buildHtml()
     {
         return '';
     }
 
-    function generateJs($jqm_page_id = null)
+    function buildJs($jqm_page_id = null)
     {
         return '';
     }

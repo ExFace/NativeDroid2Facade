@@ -16,11 +16,11 @@ class nd2DataConfigurator extends nd2Tabs
 {
     use JqueryDataConfiguratorTrait;
     
-    public function generateHtml(){
+    public function buildHtml(){
         return '';
     }
     
-    public function generateJs($jqm_page_id = null)
+    public function buildJs($jqm_page_id = null)
     {
         $widget = $this->getWidget()->getWidgetConfigured();
         
@@ -38,7 +38,7 @@ class nd2DataConfigurator extends nd2Tabs
                 // Skip promoted filters, as they are displayed next to quick search
                 if ($fltr->getVisibility() == EXF_WIDGET_VISIBILITY_PROMOTED)
                     continue;
-                    $filters_html .= $this->getTemplate()->generateHtml($fltr);
+                    $filters_html .= $this->getTemplate()->buildHtml($fltr);
             }
         }
         $filters_html = trim(preg_replace('/\s+/', ' ', $filters_html));
@@ -78,7 +78,7 @@ $('body').append('\
 </div><!-- page-->\
 ');
 JS;
-		return $output . parent::generateJs($jqm_page_id);
+		return $output . parent::buildJs($jqm_page_id);
     }
 }
 ?>
