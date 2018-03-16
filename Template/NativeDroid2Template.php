@@ -96,5 +96,18 @@ class NativeDroid2Template extends AbstractAjaxTemplate
             return parent::setResponseFromAction($action);
         }
     }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \exface\Core\Interfaces\Templates\HttpTemplateInterface::getUrlRoutePatterns()
+     */
+    public function getUrlRoutePatterns() : array
+    {
+        return [
+            "/[\?&]tpl=nd2/",
+            "/\/api\/nd2[\/?]/"
+        ];
+    }
 }
 ?>
