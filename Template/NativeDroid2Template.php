@@ -3,7 +3,7 @@ namespace exface\NativeDroid2Template\Template;
 
 use exface\Core\Templates\AbstractAjaxTemplate\AbstractAjaxTemplate;
 use exface\Core\Interfaces\Actions\ActionInterface;
-use exface\Core\Widgets\AbstractWidget;
+use exface\Core\Templates\AbstractAjaxTemplate\Middleware\JqueryDataTablesUrlParamsReader;
 
 class NativeDroid2Template extends AbstractAjaxTemplate
 {
@@ -22,67 +22,17 @@ class NativeDroid2Template extends AbstractAjaxTemplate
      *
      * @see AbstractAjaxTemplate::buildJs()
      */
-    function buildJs(\exface\Core\Widgets\AbstractWidget $widget, $jqm_page_id = null)
+    public function buildJs(\exface\Core\Widgets\AbstractWidget $widget, $jqm_page_id = null)
     {
         $instance = $this->getElement($widget);
         return $instance->buildJs($jqm_page_id);
     }
 
-    public function processRequest($page_id = NULL, $widget_id = NULL, $action_alias = NULL, $disable_error_handling = NULL)
-    {
-        $this->request_columns = $this->getWorkbench()->getRequestParams()['columns'];
-        $this->getWorkbench()->removeRequestParam('columns');
-        $this->getWorkbench()->removeRequestParam('search');
-        $this->getWorkbench()->removeRequestParam('draw');
-        $this->getWorkbench()->removeRequestParam('_');
-        return parent::processRequest($page_id, $widget_id, $action_alias, $disable_error_handling);
-    }
-
-    public function getRequestPagingOffset()
-    {
-        if (! $this->request_paging_offset) {
-            $this->request_paging_offset = $this->getWorkbench()->getRequestParams()['start'];
-            $this->getWorkbench()->removeRequestParam('start');
-        }
-        return $this->request_paging_offset;
-    }
-
-    public function getRequestPagingRows()
-    {
-        if (! $this->request_paging_rows) {
-            $this->request_paging_rows = $this->getWorkbench()->getRequestParams()['length'];
-            $this->getWorkbench()->removeRequestParam('length');
-        }
-        return $this->request_paging_rows;
-    }
-
-    public function getRequestSortingDirection()
-    {
-        if (! $this->request_sorting_direction) {
-            $this->getRequestSortingSortBy();
-        }
-        return $this->request_sorting_direction;
-    }
-
-    public function getRequestSortingSortBy()
-    {
-        if (! $this->request_sorting_sort_by) {
-            $sorters = ! is_null($this->getWorkbench()->getRequestParams()['order']) ? $this->getWorkbench()->getRequestParams()['order'] : array();
-            $this->getWorkbench()->removeRequestParam('order');
-            
-            foreach ($sorters as $sorter) {
-                if ($sort_attr = $this->request_columns[$sorter['column']]['data']) {
-                    $this->request_sorting_sort_by .= ($this->request_sorting_sort_by ? ',' : '') . $sort_attr;
-                    $this->request_sorting_direction .= ($this->request_sorting_direction ? ',' : '') . $sorter['dir'];
-                }
-            }
-        }
-        return $this->request_sorting_sort_by;
-    }
-
     /**
      * In jQuery mobile we need to do some custom handling for the output of ShowDialog-actions: it must be wrapped in a
      * JQM page.
+     * 
+     * FIXME make this work with API v4
      *
      * @see \exface\Core\Templates\AbstractAjaxTemplate\AbstractAjaxTemplate::setResponseFromAction()
      */
@@ -108,6 +58,18 @@ class NativeDroid2Template extends AbstractAjaxTemplate
             "/[\?&]tpl=nd2/",
             "/\/api\/nd2[\/?]/"
         ];
+    }
+    
+    /**
+     *
+     * {@inheritDoc}
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\AbstractAjaxTemplate::getMiddleware()
+     */
+    protected function getMiddleware() : array
+    {
+        $middleware = parent::getMiddleware();
+        $middleware[] = new JqueryDataTablesUrlParamsReader($this, 'getInputData', 'setInputData');
+        return $middleware;
     }
 }
 ?>
