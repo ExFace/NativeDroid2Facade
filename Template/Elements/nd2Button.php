@@ -29,7 +29,7 @@ class nd2Button extends nd2AbstractElement
         // Actions with template scripts may contain some helper functions or global variables.
         // Print the here first.
         if ($this->getAction() && $this->getAction()->implementsInterface('iRunTemplateScript')) {
-            $output .= $this->getAction()->buildScriptHelperFunctions();
+            $output .= $this->getAction()->buildScriptHelperFunctions($this->getTemplate());
         }
         
         if ($click = $this->buildJsClickFunction()) {
