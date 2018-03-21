@@ -20,7 +20,7 @@ class NativeDroid2TemplateApp extends App
     {
         $installer = parent::getInstaller($injected_installer);
         $tplInstaller = new HttpTemplateInstaller($this->getSelector());
-        $tplInstaller->setTemplate(TemplateFactory::createFromString('exface.NativeDroid2Template', $this->getWorkbench()));
+        $tplInstaller->setTemplate(TemplateFactory::createFromString('exface.NativeDroid2Template.NativeDroid2Template', $this->getWorkbench()));
         $installer->addInstaller($tplInstaller);
         return $installer;
     }
