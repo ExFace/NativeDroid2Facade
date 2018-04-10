@@ -1,7 +1,7 @@
 <?php
 namespace exface\NativeDroid2Template\Templates\Elements;
 
-class nd2CheckBox extends nd2AbstractElement
+class nd2InputCheckBox extends nd2AbstractElement
 {
 
     protected function init()
