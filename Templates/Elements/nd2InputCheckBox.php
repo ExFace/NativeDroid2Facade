@@ -1,7 +1,7 @@
 <?php
 namespace exface\NativeDroid2Template\Templates\Elements;
 
-class nd2InputCheckBox extends nd2AbstractElement
+class nd2InputCheckBox extends nd2Value
 {
 
     protected function init()
@@ -12,28 +12,17 @@ class nd2InputCheckBox extends nd2AbstractElement
 
     function buildHtml()
     {
-        $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
-						<label>' . $this->getWidget()->getCaption() . '</label>
-						<input type="checkbox" value="1" 
-								form="" 
-								id="' . $this->getWidget()->getId() . '_checkbox"
-								onchange="$(\'#' . $this->getWidget()->getId() . '\').val(this.checked);"' . '
-								' . ($this->getWidget()->getValue() ? 'checked="checked" ' : '') . '
-								' . ($this->getWidget()->isDisabled() ? 'disabled="disabled"' : '') . ' />
-						<input type="hidden" name="' . $this->getWidget()->getAttributeAlias() . '" id="' . $this->getWidget()->getId() . '" value="' . $this->getWidget()->getValue() . '" />
-					</div>';
-        return $output;
+        $value = $this->getWidget()->getValue() ? 'checked="checked" ' : '';
+        $disabled = $this->getWidget()->isDisabled() ? 'disabled="disabled"' : '';
+        $output = <<<HTML
+        <input class="exf-input checkbox" type="checkbox" value="1" id="{$this->getWidget()->getId()}" $value $disabled />
+HTML;
+        return $this->buildHtmlGridItemWrapper($output);
     }
 
     function buildJs($jqm_page_id = null)
     {
         return '';
-    }
-
-    function buildJsInitOptions()
-    {
-        $options = 'on: "&#10004;"' . ', off: ""';
-        return $options;
     }
 }
 ?>

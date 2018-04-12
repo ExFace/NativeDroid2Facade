@@ -45,7 +45,7 @@ HTML;
      */
     protected function buildHtmlLabel()
     {
-        if (! $this->getCaption() || $this->getWidget()->getHideCaption()) {
+        if (! $this->getCaption() || $this->getWidget()->getHideCaption() || $this->getWidget()->isInTable()) {
             return '';
         }
         
@@ -63,9 +63,13 @@ HTML;
      */
     protected function buildHtmlGridItemWrapper($html)
     {
+        if (! $this->getWidget()->isInTable()) {
+            $cssClasses = "exf-grid-item";
+        }
+        
         return <<<HTML
 
-    <div class="exf-grid-item exf-input" title="{$this->buildHintText()}">
+    <div class="exf-input {$cssClasses}" title="{$this->buildHintText()}">
         {$html}
     </div>
 HTML;
