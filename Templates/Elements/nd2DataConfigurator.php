@@ -43,6 +43,8 @@ class nd2DataConfigurator extends nd2Tabs
         }
         $filters_html = trim(preg_replace('/\s+/', ' ', $filters_html));
         
+        $refreshScript = str_replace("'", "\'", $this->getTemplate()->getElement($widget)->buildJsRefresh(false));
+        
         // TODO replace this custom popup with a regular tabs widget
         $output = <<<JS
 $('body').append('\
@@ -71,7 +73,7 @@ $('body').append('\
 \
 			<div style="text-align:right;" class="ui-alt-icon">\
 				<a href="#" data-rel="back" class="ui-btn ui-btn-inline"><i class="{$this->buildCssIconClass(Icons::TIMES)}"></i> {$this->getWorkbench()->getCoreApp()->getTranslator()->translate('ACTION.SHOWDIALOG.CANCEL_BUTTON')}</a>\
-                <a href="#" data-rel="back" class="ui-btn ui-btn-inline" onclick="{$this->getTemplate()->getElement($widget)->buildJsRefresh(false)}"><i class="{$this->buildCssIconClass(Icons::SEARCH)}"></i> {$this->getWorkbench()->getCoreApp()->getTranslator()->translate('ACTION.READDATA.SEARCH')}</a>\
+                <a href="#" data-rel="back" class="ui-btn ui-btn-inline" onclick="{$refreshScript}"><i class="{$this->buildCssIconClass(Icons::SEARCH)}"></i> {$this->getWorkbench()->getCoreApp()->getTranslator()->translate('ACTION.READDATA.SEARCH')}</a>\
 			</div>\
 \
 	</div><!-- /content -->\
