@@ -5,9 +5,13 @@ use exface\Core\Templates\AbstractAjaxTemplate\Elements\JqueryContainerTrait;
 
 class nd2Container extends nd2AbstractElement
 {
-    
     use JqueryContainerTrait;
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildJs()
+     */
     public function buildJs($jqm_page_id = null)
     {
         return $this->buildJsForChildren($jqm_page_id);
@@ -28,6 +32,16 @@ class nd2Container extends nd2AbstractElement
             $output .= $this->getTemplate()->buildJs($subw, $jqm_page_id) . "\n";
         }
         return $output;
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
+     */
+    public function buildHtml()
+    {
+        return $this->buildHtmlForChildren();
     }
 }
 ?>

@@ -5,7 +5,6 @@ use exface\Core\Templates\AbstractAjaxTemplate\Elements\JqueryFilterTrait;
 
 class nd2Filter extends nd2AbstractElement
 {
-    
     use JqueryFilterTrait;
 
     /**
@@ -15,9 +14,19 @@ class nd2Filter extends nd2AbstractElement
      *
      * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildJs()
      */
-    function buildJs($jqm_page_id = NULL)
+    public function buildJs($jqm_page_id = NULL)
     {
         return $this->getInputElement()->buildJs($jqm_page_id);
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
+     */
+    public function buildHtml()
+    {
+        return $this->getInputElement()->buildHtml();
     }
 }
 ?>
