@@ -29,13 +29,9 @@ class nd2ButtonGroup extends nd2AbstractElement
      * {@inheritDoc}
      * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildJs()
      */
-    public function buildJs($jqm_page_id = NULL)
+    public function buildJs()
     {
-        $js = '';
-        foreach ($this->getWidget()->getButtons() as $button) {
-            $js .= $this->getTemplate()->getElement($button)->buildJs($jqm_page_id);
-        }
-        return $js;
+        $this->buildJsForButtons();
     }
 }
 ?>
