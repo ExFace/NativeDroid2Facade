@@ -18,6 +18,12 @@
 		"bower-asset/masonry" : "~4",
 		"bower-asset/datatables.net" : "~1.10.12",
 		"bower-asset/datatables.net-dt" : "~1.10.12",
+		"bower-asset/datatables.net-select" : "^1.2.1",
+		"bower-asset/datatables.net-select-dt" : "^1.2.1",
+		"bower-asset/datatables.net-rowgroup" : "^1.0.2",
+		"bower-asset/datatables.net-rowgroup-dt" : "^1.0.2",
+		"bower-asset/datatables.net-responsive": "^2.2.0",
+		"bower-asset/datatables.net-responsive-dt": "^2.2.0",
 		"npm-asset/screenfull" : "~3.0",
 		"npm-asset/mfb" : "^0.12"
 	},

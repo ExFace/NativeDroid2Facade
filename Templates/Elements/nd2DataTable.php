@@ -167,14 +167,20 @@ JS;
     public function buildHtmlHeadTags()
     {
         $includes = parent::buildHtmlHeadTags();
+        $template = $this->getTemplate();
         
         // $includes[] = '<link rel="stylesheet" type="text/css" href="exface/vendor/exface/NativeDroid2Template/Templates/js/DataTables/media/css/jquery.dataTables.min.css">';
         // $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Templates/js/DataTables/media/js/jquery.dataTables.min.js"></script>';
         $includes[] = '<script type="text/javascript" src="exface/vendor/exface/NativeDroid2Template/Templates/js/DataTables.exface.helpers.js"></script>';
         
         if ($this->getWidget()->hasRowGroups()){
-            $includes[] = '<script type="text/javascript" src="exface/vendor/bower-asset/datatables.net-rowgroup/js/dataTables.rowgroup.min.js"></script>';
-            $includes[] = '<link rel="stylesheet" type="text/css" href="exface/vendor/bower-asset/datatables.net-rowgroup-bs/css/rowGroup.bootstrap.min.css">';
+            $includes[] = '<script type="text/javascript" src="' . $template->buildUrlToSource('LIBS.DATATABLES.ROWGROUP.JS') . '"></script>';
+            $includes[] = '<link rel="stylesheet" type="text/css" href="' . $template->buildUrlToSource('LIBS.DATATABLES.ROWGROUP.CSS') . '">';
+        }
+        
+        if ($this->isResponsive()){
+            $includes[] = '<script type="text/javascript" src="' . $template->buildUrlToSource('LIBS.DATATABLES.RESPONSIVE.JS') . '"></script>';
+            $includes[] = '<link rel="stylesheet" type="text/css" href="' . $template->buildUrlToSource('LIBS.DATATABLES.RESPONSIVE.CSS') . '">';
         }
         
         return $includes;
