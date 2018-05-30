@@ -113,7 +113,11 @@ $(document).on('pageshow', '#{$jqm_page_id}', function() {
 		setColumnVisibility(this.name, (this.checked ? true : false) );
 	});
 	
+    {$this->buildJsNoInitialLoadMessageBefore()}
+    
 	{$this->getId()}_table = {$this->buildJsTableInit()}
+	
+    {$this->buildJsNoInitialLoadMessageAfter()}
 	
     {$this->buildJsClickListeners()}
     
@@ -200,7 +204,7 @@ JS;
         $buttons_html = '';
         foreach ($this->getWidget()->getButtons() as $b) {
             /* @var $b \exface\Core\Widgets\Button */
-            if (! $b->isHidden() && (! $b->getAction() || $b->getAction()->getInputRowsMin() === 1)) {
+            if (! $b->isHidden() && $b->getAction()) {
                 $buttons_html .= '<li data-icon="false"><a href="#" onclick="' . $this->getTemplate()->getElement($b)->buildJsClickFunctionName() . '(); $(this).parent().parent().parent().popup(\'close\');"><i class="' . $this->buildCssIconClass($b->getIcon()) . '"></i> ' . $b->getCaption() . '</a></li>';
             }
         }
@@ -354,6 +358,67 @@ JS;
 					$(this).addClass('selected');
 					$('#{$this->getId()}_context_menu').popup('open', {x: exfTapCoordinates.X, y: exfTapCoordinates.Y});
 				});";
+        }
+        
+        return $output;
+    }
+    
+    /**
+     *
+     * @return string
+     */
+    protected function buildJsNoInitialLoadMessageBefore()
+    {
+        $widget = $this->getWidget();
+        
+        if (! $widget->getAutoloadData() && $widget->getLazyLoading()) {
+            // Wenn noetig initiales Laden ueberspringen.
+            $output = <<<JS
+            
+        $("#{$this->getId()}").data("_skipNextLoad", true);
+JS;
+            
+            // Dieses Skript wird nach dem erfolgreichen Laden ausgefuehrt, um die angezeigte
+            // Nachricht (s.u.) zu entfernen. Das Skript muss vor $grid_head erzeugt werden.
+            $onLoadSuccessSkript = <<<JS
+            
+        $("#{$this->getId()}_no_initial_load_message").remove();
+JS;
+            $this->addOnLoadSuccess($onLoadSuccessSkript);
+        } else {
+            $output = '';
+        }
+        
+        return $output;
+    }
+    
+    /**
+     * Generates JS code to show a message if the initial load was skipped.
+     *
+     * @return string
+     */
+    protected function buildJsNoInitialLoadMessageAfter()
+    {
+        $widget = $this->getWidget();
+        
+        if (! $widget->getAutoloadData() && $widget->getLazyLoading()) {
+            $output = <<<JS
+            
+            $("#{$this->getId()}").closest(".jqmDataTable").append("\
+                <div id='{$this->getId()}_no_initial_load_message'\
+                     class='no-initial-load-message-overlay'>\
+                    <table class='no-initial-load-message-overlay-table'>\
+                        <tr>\
+                            <td style='text-align:center;'>\
+                                {$widget->getTextNotLoaded()}\
+                            </td>\
+                        </tr>\
+                    </table>\
+                </div>\
+            ");
+JS;
+        } else {
+            $output = '';
         }
         
         return $output;

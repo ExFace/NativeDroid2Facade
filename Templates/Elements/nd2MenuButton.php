@@ -33,7 +33,7 @@ class nd2MenuButton extends nd2AbstractElement
             $buttons_html .= '<li><a href="#" onclick="' . $this->buildJsButtonFunctionName($b) . '(); $(this).parent().parent().parent().popup(\'close\');"><i class="' . $this->buildCssIconClass($b->getIcon()) . '"></i> ' . $b->getCaption() . '</a></li>';
         }
         
-        $icon = $widget->getIcon() ? $this->buildCssIconClass($widget->getIcon()) : $this->buildCssIconClass(Icons::CHEVRON_DOWN);
+        $icon = $widget->getIcon() ? $this->buildCssIconClass($widget->getIcon()) : $this->buildCssIconClass(Icons::ELLIPSIS_V);
         
         $output = <<<HTML
 
