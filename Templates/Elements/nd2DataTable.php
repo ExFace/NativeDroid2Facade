@@ -85,6 +85,11 @@ HTML;
         return $output;
     }
     
+    protected function buildHtmlCardWrapper(string $html) : string
+    {
+        
+    }
+    
     protected function movePromotedButtonsToFloatingActionMenu()
     {
         
@@ -250,14 +255,12 @@ HTML;
 
     protected function buildHtmlFooter($buttons_html)
     {
-        $output = <<<HTML
+        $widget = $this->getWidget();
+        
+        if ($widget->getPaginate() === true) {
+            $pagingButtons = <<<HTML
 
-<div class="card-action">
-    <div class="box">
-		<div class="pull-right text-right exf-toolbar exf-paginator" style="min-width: 350px;">
-			<a href="#{$this->getTemplate()->getElement($this->getWidget()->getConfiguratorWidget())->getId()}" class="ui-btn ui-btn-inline" title="{$this->translate('WIDGET.DATATABLE.SETTINGS_DIALOG.TITLE')}"><i class="fa fa-filter"></i></a>
-			<a href="#" class="ui-btn ui-btn-inline" onclick="{$this->buildJsRefresh(false)} return false;" title="{$this->translate('WIDGET.REFRESH')}"><i class="fa fa-refresh"></i></a>
-			<a href="#{$this->getId()}_pagingPopup" id="{$this->getId()}_pageInfo" data-rel="popup" class="ui-btn ui-btn-inline"></a>
+            <a href="#{$this->getId()}_pagingPopup" id="{$this->getId()}_pageInfo" data-rel="popup" class="ui-btn ui-btn-inline"></a>
 		    <div data-role="popup" id="{$this->getId()}_pagingPopup" style="width:300px; padding:10px;">
 				<form>
 				    <label for="{$this->getId()}_pageSlider">Page:</label>
@@ -266,6 +269,21 @@ HTML;
 			</div>
 			<a href="#" id="{$this->getId()}_prevPage" class="ui-btn ui-btn-inline"><i class="fa fa-chevron-left"></i></a>
 			<a href="#" id="{$this->getId()}_nextPage" class="ui-btn ui-btn-inline"><i class="fa fa-chevron-right"></i></a>
+
+HTML;
+            $paginatorStyle = 'min-width: 350px';
+        } else {
+            $paginatorStyle = 'min-width: 92px';
+        }
+        
+        $output = <<<HTML
+
+<div class="card-action">
+    <div class="box">
+		<div class="pull-right text-right exf-toolbar exf-paginator" style="{$paginatorStyle}">
+			<a href="#{$this->getTemplate()->getElement($widget->getConfiguratorWidget())->getId()}" class="ui-btn ui-btn-inline" title="{$this->translate('WIDGET.DATATABLE.SETTINGS_DIALOG.TITLE')}"><i class="fa fa-filter"></i></a>
+			<a href="#" class="ui-btn ui-btn-inline" onclick="{$this->buildJsRefresh(false)} return false;" title="{$this->translate('WIDGET.REFRESH')}"><i class="fa fa-refresh"></i></a>
+			{$pagingButtons}
 		</div>
         <div>{$buttons_html}</div>
 	</div>
@@ -410,7 +428,7 @@ JS;
                     <table class='no-initial-load-message-overlay-table'>\
                         <tr>\
                             <td style='text-align:center;'>\
-                                {$widget->getTextNotLoaded()}\
+                                {$widget->getAutoloadDisabledHint()}\
                             </td>\
                         </tr>\
                     </table>\
