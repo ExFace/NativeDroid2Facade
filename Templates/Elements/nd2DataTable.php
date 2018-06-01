@@ -276,9 +276,14 @@ HTML;
             $paginatorStyle = 'min-width: 92px';
         }
         
+        $style = '';
+        if ($widget->getHideFooter()) {
+            $style .= 'display: none;';
+        }
+        
         $output = <<<HTML
 
-<div class="card-action">
+<div class="card-action" style="{$style}">
     <div class="box">
 		<div class="pull-right text-right exf-toolbar exf-paginator" style="{$paginatorStyle}">
 			<a href="#{$this->getTemplate()->getElement($widget->getConfiguratorWidget())->getId()}" class="ui-btn ui-btn-inline" title="{$this->translate('WIDGET.DATATABLE.SETTINGS_DIALOG.TITLE')}"><i class="fa fa-filter"></i></a>
