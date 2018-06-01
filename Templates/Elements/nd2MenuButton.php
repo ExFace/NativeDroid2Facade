@@ -24,7 +24,7 @@ class nd2MenuButton extends nd2AbstractElement
      * {@inheritDoc}
      * @see \exface\Core\Templates\AbstractAjaxTemplate\Elements\AbstractJqueryElement::buildHtml()
      */
-    function buildHtml()
+    public function buildHtml()
     {
         $widget = $this->getWidget();
         
@@ -53,22 +53,16 @@ HTML;
      *
      * @see \exface\NativeDroid2Template\Templates\Elements\nd2AbstractElement::buildJs()
      */
-    function buildJs($jqm_page_id = null)
+    public function buildJs($jqm_page_id = null)
     {
         $output = '';
         foreach ($this->getWidget()->getButtons() as $b) {
-            if ($js_click_function = $this->getTemplate()->getElement($b)->buildJsClickFunction()) {
-                $output .= "
-					function " . $this->buildJsButtonFunctionName($b) . "(){
-						" . $js_click_function . "
-					}
-					";
-            }
+            $output .= "\n" . $this->getTemplate()->getElement($b)->buildJs($jqm_page_id);
         }
         return $output;
     }
 
-    function buildJsButtonFunctionName(Button $button)
+    protected function buildJsButtonFunctionName(Button $button)
     {
         return $this->getTemplate()->getElement($button)->buildJsClickFunctionName();
     }
