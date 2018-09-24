@@ -257,7 +257,7 @@ HTML;
     {
         $widget = $this->getWidget();
         
-        if ($widget->getPaginate() === true) {
+        if ($widget->isPaged() === true) {
             $pagingButtons = <<<HTML
 
             <a href="#{$this->getId()}_pagingPopup" id="{$this->getId()}_pageInfo" data-rel="popup" class="ui-btn ui-btn-inline"></a>
