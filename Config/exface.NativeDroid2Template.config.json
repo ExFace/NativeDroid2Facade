@@ -21,6 +21,7 @@
     "ICON_CLASSES.MORE": "navigation-more-horiz",
     "ICON_CLASSES.LINK": "action-input",
     
+    "INSTALLER.SERVICEWORKER.DISABLED": true, 
     "INSTALLER.SERVICEWORKER.ROUTES": {
     	"GET data": {
 			"description": "Cache data from the template API",
