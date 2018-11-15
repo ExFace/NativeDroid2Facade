@@ -21,7 +21,7 @@ class nd2Tab extends nd2Panel
     {
         $widget = $this->getWidget();
         // der erste Tab ist aktiv
-        $active = $widget === $widget->getParent()->getChildren()[0] ? 'data-tab-active="true"' : '';
+        $active = $widget === $widget->getParent()->getTabs(0) ? 'data-tab-active="true"' : '';
         $disabled_class = $widget->isDisabled() ? 'disabled' : '';
         $icon = $widget->getIcon() ? '<i class="' . $this->buildCssIconClass($widget->getIcon()) . '"></i>' : '';
         

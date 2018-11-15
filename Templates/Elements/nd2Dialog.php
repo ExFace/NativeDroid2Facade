@@ -31,8 +31,8 @@ class nd2Dialog extends nd2Panel
         
         $content = $this->buildHtmlForWidgets();
         
-        if ($widget->countWidgetsVisible() === 1 && $widget->getChildren()[0]->is('Tabs')){
-            $tabs_element = $this->getTemplate()->getElement($widget->getChildren()[0]);
+        if ($widget->countWidgetsVisible() === 1 && $widget->getWidgetFirst()->is('Tabs')){
+            $tabs_element = $this->getTemplate()->getElement($widget->getWidgetFirst());
             $subtitle = $tabs_element->buildHtmlTabHeaders();
             $content = $tabs_element->buildHtmlTabBodies();
         }
