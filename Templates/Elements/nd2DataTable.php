@@ -239,7 +239,7 @@ HTML;
                     <form id="{$this->getId()}_quickSearch_form">
                         <div class="ui-grid-a pull-right" style="width: 100%">
                             <div class="ui-block-a" style="width: calc(100% - 108px); margin-right: 10px;">
-        				        <input id="{$this->getId()}_quickSearch" type="text" placeholder="{$this->getQuickSearchPlaceholder()}" data-clear-btn="true" />
+        				        <input id="{$this->getId()}_quickSearch" type="text" placeholder="{$this->getWidget()->getQuickSearchPlaceholder()}" data-clear-btn="true" />
                             </div>
                             <div class="ui-block-b" style="width: 98px;">
                                 <a href="#" data-role="button" class="ui-btn ui-btn-inline ui-btn-mini" onclick="{$this->buildJsRefresh(false)} return false;"><i class="fa fa-search"></i></a>
