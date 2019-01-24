@@ -4,6 +4,8 @@ namespace exface\NativeDroid2Template\Templates;
 use exface\Core\Templates\AbstractAjaxTemplate\AbstractAjaxTemplate;
 use exface\Core\Interfaces\Actions\ActionInterface;
 use exface\Core\Templates\AbstractAjaxTemplate\Middleware\JqueryDataTablesUrlParamsReader;
+use exface\Core\Interfaces\WidgetInterface;
+use exface\Core\Interfaces\DataSheets\DataSheetInterface;
 
 class NativeDroid2Template extends AbstractAjaxTemplate
 {
@@ -70,6 +72,16 @@ class NativeDroid2Template extends AbstractAjaxTemplate
         $middleware = parent::getMiddleware();
         $middleware[] = new JqueryDataTablesUrlParamsReader($this, 'getInputData', 'setInputData');
         return $middleware;
+    }
+    
+    public function buildResponseData(DataSheetInterface $data_sheet, WidgetInterface $widget = null)
+    {
+        $data = array();
+        $data['data'] = $data_sheet->getRows();
+        $data['recordsFiltered'] = $data_sheet->countRowsInDataSource();
+        $data['recordsTotal'] = $data_sheet->countRowsInDataSource();
+        $data['footer'] = $data_sheet->getTotalsRows();
+        return $data;
     }
 }
 ?>
