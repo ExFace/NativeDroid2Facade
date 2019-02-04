@@ -1,6 +1,8 @@
 <?php
 namespace exface\NativeDroid2Template\Templates\Elements;
 
+use exface\Core\Factories\DataSheetFactory;
+
 class nd2DataMatrixOld extends nd2DataTable
 {
 
@@ -67,7 +69,7 @@ class nd2DataMatrixOld extends nd2DataTable
         $result = array();
         
         // create data sheet to fetch data
-        $ds = $exface->data()->createDataSheet($this->getMetaObject());
+        $ds = DataSheetFactory::createFromObject($this->getMetaObject());
         // add columns
         foreach ($widget->getColumns() as $col) {
             $ds->getColumns()->addFromExpression($col->getAttributeAlias(), $col->getDataColumnName(), $col->isHidden());
