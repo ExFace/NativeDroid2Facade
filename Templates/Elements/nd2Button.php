@@ -63,7 +63,7 @@ class nd2Button extends nd2AbstractElement
     {
         /* @var $widget \exface\Core\Widgets\Button */
         $widget = $this->getWidget();
-        $icon = ($widget->getIcon() && ! $widget->getHideButtonIcon() ? '<i class="' . ($widget->getCaption() && ! $widget->getHideButtonText() ? 'ui-pull-left ' : '') . $this->buildCssIconClass($widget->getIcon() . '"></i> ') : '');
+        $icon = ($widget->getIcon() && $widget->getShowIcon(true) ? '<i class="' . ($widget->getCaption() && ! $widget->getHideCaption() ? 'ui-pull-left ' : '') . $this->buildCssIconClass($widget->getIcon() . '"></i> ') : '');
         $hidden_class = ($widget->isHidden() ? ' ui-hidden' : '');
         $output = '
 				<a href="#" ' . $this->generateDataAttributes() . ' class="ui-btn ui-btn-inline ' . $hidden_class . '" onclick="' . $this->buildJsClickFunctionName() . '();">
