@@ -35,7 +35,7 @@ class nd2Display extends nd2Value implements JsValueDecoratingInterface
         $output = <<<HTML
 
         {$this->buildHtmlLabel()}
-        <div id="{$this->getId()}">{$this->escapeString($this->getWidget()->getValue())}</div>
+        <div id="{$this->getId()}" class="exf-display">{$this->escapeString($this->getWidget()->getValue())}</div>
 
 HTML;
         

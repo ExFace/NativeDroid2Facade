@@ -36,6 +36,11 @@
     width: 40px;
 }
 
+/* Input widgets */
+.exf-input {margin: 0 0 10px 0}
+
+/* Display widgets */
+.exf-display {margin-top: 2px; border-bottom: 1px solid #cccccc; min-height: 21px;}
 /* DataTables */
 table.dataTable.no-footer {border-bottom: none !important;}
 .dataTables_wrapper.no-footer .dataTables_scrollBody, table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {border-bottom: 1px solid rgba(0,0,0,.12)}
