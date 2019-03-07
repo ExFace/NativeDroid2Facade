@@ -52,7 +52,9 @@
     "LIBS.DATATABLES.RESPONSIVE.JS": "npm-asset/datatables.net-responsive/js/dataTables.responsive.min.js",
     "LIBS.DATATABLES.RESPONSIVE.CSS": "npm-asset/datatables.net-responsive-dt/css/responsive.datatables.min.css",
     
-    "WIDGET.ALL.DEFAULT_ALIGNMENT": "left",
+    "LIBS.QRCODE.JS": "bower-asset/jquery-qrcode/jquery.qrcode.min.js",
+	
+	"WIDGET.ALL.DEFAULT_ALIGNMENT": "left",
 	
 	"WIDGET.CHART.PAGE_SIZE": 20,
     
