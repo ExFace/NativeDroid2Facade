@@ -52,7 +52,11 @@ abstract class nd2AbstractElement extends AbstractJqueryElement
         if ($this->jqm_page_id) {
             return $this->jqm_page_id;
         } else {
-            return $this->getWorkbench()->getCMS()->getPageIdInCms($this->getWidget()->getPage());
+            $page = $this->getWidget()->getPage();
+            if ($page->getAlias() === '') {
+                return '';
+            }
+            return $this->getWorkbench()->getCMS()->getPageIdInCms($page);
         }
     }
 
