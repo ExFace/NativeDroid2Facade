@@ -22,7 +22,7 @@ class nd2Image extends nd2Display
 
 setTimeout(function() {
     $('#{$this->getId()}').attr('src', '{$this->getWidget()->getUri()}');
-}, 100);
+}, 0);
 
 JS;
     }
