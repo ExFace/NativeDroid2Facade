@@ -26,12 +26,6 @@ class nd2DataTable extends nd2AbstractElement
     use JqueryDataTablesTrait;
     
     use JqueryToolbarsTrait;
-
-    private $on_load_success = '';
-
-    private $editable = false;
-
-    private $editors = array();
     
     protected function init()
     {
@@ -343,21 +337,6 @@ JS;
     private function buildJsDisableTextSelection()
     {
         return "$('#{$this->getId()} tbody tr td').attr('unselectable', 'on').css('user-select', 'none').on('selectstart', false);";
-    }
-
-    public function isEditable()
-    {
-        return $this->editable;
-    }
-
-    public function setEditable($value)
-    {
-        $this->editable = $value;
-    }
-
-    public function getEditors()
-    {
-        return $this->editors;
     }
     
     public function buildJsFilterIndicatorUpdater()
