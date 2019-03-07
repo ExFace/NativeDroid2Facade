@@ -22,7 +22,7 @@ class nd2ProgressBar extends nd2Display
      */
     public function buildHtml()
     {
-        return $this->buildHtmlProgressBar($this->getValueWithDefaults());
+        return $this->buildHtmlProgressBar($this->getWidget()->getValueWithDefaults());
     }
     
     /**
