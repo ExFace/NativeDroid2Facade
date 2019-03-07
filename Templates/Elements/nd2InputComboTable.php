@@ -20,9 +20,22 @@ class nd2InputComboTable extends nd2Input
 
     function buildHtml()
     {
+        $classes = '';
+        $props = '';
+        if (false === $this->getWidget()->isDisabled()) {
+            $classes .= ' ui-input-has-clear';
+            $props .= ' data-clear-btn="true"';
+        }
         $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
 						<label for="' . $this->getId() . '">' . $this->getWidget()->getCaption() . '</label>
-						<input id="' . $this->getId() . '_autocomplete_input" type="text" data-clear-btn="true" class="ui-input-has-clear" value="' . $this->getWidget()->getValueText() . '" />
+						<input id="' . $this->getId() . '
+                                _autocomplete_input" 
+                                type="text" 
+                                class="' . $classes . '" 
+                                ' . $props . '
+                                value="' . $this->getWidget()->getValueText() . '" 
+								' . ($this->getWidget()->isRequired() ? 'required="true" ' : '') . '
+								' . ($this->getWidget()->isDisabled() ? 'disabled="disabled" ' : '') . '/>
 						<input type="hidden"		
 								id="' . $this->getId() . '" 
 								name="' . $this->getWidget()->getAttributeAlias() . '"

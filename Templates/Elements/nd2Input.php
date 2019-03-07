@@ -14,11 +14,16 @@ class nd2Input extends nd2Value
 
     public function buildHtml()
     {
-        $output = $this->buildHtmlLabel() . '	    <input data-clear-btn="true"
+        $props = '';
+        if (false === $this->getWidget()->isDisabled()) {
+            $props .= ' data-clear-btn="true"';
+        }
+        $output = $this->buildHtmlLabel() . '	    <input
 								type="' . $this->getElementType() . '"
 								name="' . $this->getWidget()->getAttributeAlias() . '"
 								value="' . $this->escapeString($this->getWidget()->getValue()) . '"
 								id="' . $this->getId() . '"
+                                ' . $props . '
 								' . ($this->getWidget()->isRequired() ? 'required="true" ' : '') . '
 								' . ($this->getWidget()->isDisabled() ? 'disabled="disabled" ' : '') . '/>';
         
