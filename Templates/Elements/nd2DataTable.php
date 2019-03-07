@@ -10,6 +10,8 @@ use exface\Core\Widgets\MenuButton;
 use exface\Core\Widgets\ButtonGroup;
 use exface\Core\Widgets\DataTable;
 use exface\Core\Factories\WidgetFactory;
+use exface\Core\Interfaces\Widgets\iContainOtherWidgets;
+use exface\Core\Widgets\Container;
 
 /**
  *
@@ -63,10 +65,15 @@ class nd2DataTable extends nd2AbstractElement
         $footer = $this->buildHtmlFooter($this->buildHtmlToolbars());
         $header = $this->buildHtmlHeader();
         
+        $wrapperClasses = '';
+        if ($widget->hasParent() && $widget->getParent() instanceof Container && $widget->getParent()->countWidgetsVisible() > 1) {
+            $wrapperClasses .= 'nd2-card';
+        }
+        
         // output the html code
         // TODO replace "stripe" class by a custom css class
         $output = <<<HTML
-<div class="nd2-card">
+<div class="{$wrapperClasses}">
     {$header}
     <div class="jqmDataTable">
     	{$this->buildHtmlTable('mdl-data-table stripe')}
