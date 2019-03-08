@@ -15,9 +15,6 @@ class nd2Input extends nd2Value
     public function buildHtml()
     {
         $props = '';
-        if (false === $this->getWidget()->isDisabled()) {
-            $props .= ' data-clear-btn="true"';
-        }
         $output = $this->buildHtmlLabel() . '	    <input
 								type="' . $this->getElementType() . '"
 								name="' . $this->getWidget()->getAttributeAlias() . '"

@@ -22,10 +22,6 @@ class nd2InputComboTable extends nd2Input
     {
         $classes = '';
         $props = '';
-        if (false === $this->getWidget()->isDisabled()) {
-            $classes .= ' ui-input-has-clear';
-            $props .= ' data-clear-btn="true"';
-        }
         $output = '	<div class="exf-grid-item exf-input" title="' . $this->buildHintText() . '">
 						<label for="' . $this->getId() . '">' . $this->getWidget()->getCaption() . '</label>
 						<input id="' . $this->getId() . '
