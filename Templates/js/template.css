@@ -85,6 +85,7 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 
 /* navigation */
 /* Basic settings */
+.exf-menu-active > a {font-weight: bold !important;}
 .ui-li-static.ui-collapsible {
 	padding: 0;
 }
