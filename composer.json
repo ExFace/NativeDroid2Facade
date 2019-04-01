@@ -1,6 +1,6 @@
 {
-	"name" : "exface/NativeDroid2Template",
-	"description" : "Material design UI template for the ExFace web ap plattform based on jQuery mobile and nativeDroid2",
+	"name" : "exface/NativeDroid2Facade",
+	"description" : "Material design UI facade for the ExFace web ap plattform based on jQuery mobile and nativeDroid2",
 	"type" : "library",
 	"license" : "GPL-3.0+",
 	"authors" : [{
@@ -10,7 +10,7 @@
 		}
 	],
 	"support" : {
-		"issues" : "https://github.com/exface/NativeDroid2Template/issues"
+		"issues" : "https://github.com/exface/NativeDroid2Facade/issues"
 	},
 	"require" : {
 		"exface/core" : "~0.1",
@@ -30,7 +30,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"exface\\NativeDroid2Template\\" : ""
+			"exface\\NativeDroid2Facade\\" : ""
 		},
 		"exclude-from-classmap" : [
 			"/Config/",
@@ -41,7 +41,7 @@
 	"extra" : {
 		"app" : {
 			"app_uid" : "0x11e8c23e1b4315f8b73e0205857feb80",
-			"app_alias" : "exface.NativeDroid2Template",
+			"app_alias" : "exface.NativeDroid2Facade",
 			"model_md5" : "f2c825c5f0207d0831498ea7baa5dad6",
 			"model_timestamp" : "2018-09-27 10:17:24"
 		}
