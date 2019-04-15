@@ -13,19 +13,19 @@
 		"issues" : "https://github.com/exface/NativeDroid2Facade/issues"
 	},
 	"require" : {
-		"exface/core" : "~0.1",
+		"exface/core" : "^0.1",
 		"kabachello/jquery-nativedroid2" : "dev-master",
-		"bower-asset/masonry" : "~4",
-		"bower-asset/datatables.net" : "~1.10.12",
+		"bower-asset/masonry" : "^4",
+		"bower-asset/datatables.net" : "^1.10.12",
 		"bower-asset/jquery-qrcode" : "^1.0",
-		"npm-asset/datatables.net-dt" : "~1.10.12",
+		"npm-asset/datatables.net-dt" : "^1.10.12",
 		"npm-asset/datatables.net-select" : "^1.2.1",
 		"npm-asset/datatables.net-select-dt" : "^1.2.1",
 		"npm-asset/datatables.net-rowgroup" : "^1.0.2",
 		"npm-asset/datatables.net-rowgroup-dt" : "^1.0.2",
 		"npm-asset/datatables.net-responsive" : "^2.2.1",
 		"npm-asset/datatables.net-responsive-dt" : "^2.2.1",
-		"npm-asset/screenfull" : "~3.0",
+		"npm-asset/screenfull" : "^3.0",
 		"npm-asset/mfb" : "^0.12"
 	},
 	"autoload" : {
