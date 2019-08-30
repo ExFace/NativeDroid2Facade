@@ -12,7 +12,9 @@ use exface\Core\Facades\AbstractAjaxFacade\Interfaces\JsValueDecoratingInterface
  */
 class nd2Display extends nd2Value implements JsValueDecoratingInterface
 {
-    use JqueryDisplayTrait;
+    use JqueryDisplayTrait {
+        buildJs as buildJsViaTrait;
+    }
 
     /**
      * 
@@ -40,6 +42,16 @@ class nd2Display extends nd2Value implements JsValueDecoratingInterface
 HTML;
         
         return $this->buildHtmlGridItemWrapper($output);
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \exface\NativeDroid2Facade\Facades\Elements\nd2Value::buildJs()
+     */
+    public function buildJs($jqm_page_id = null)
+    {
+        return $this->buildJsViaTrait();
     }
 }
 ?>

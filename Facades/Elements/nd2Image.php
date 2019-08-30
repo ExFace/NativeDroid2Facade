@@ -15,7 +15,7 @@ class nd2Image extends nd2Display
 {
     use HtmlImageTrait;
     
-    public function buildJs()
+    public function buildJs($jqm_page_id = null)
     {
         // This hack prevents the URI of the image from being broken when rendering the jqm page.
         return parent::buildJs() . <<<JS
