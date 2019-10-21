@@ -73,6 +73,12 @@ class nd2Button extends nd2AbstractElement
         return $output;
     }
     
+
+    /**
+     * overwrites the standard includes and adds custom includes from JqueryButtonTrait::buildHtmlHeadTagsForCustomScriptIncludes()
+     * {@inheritDoc}
+     * @see \exface\Core\Facades\AbstractAjaxFacade\Elements\AbstractJqueryElement::buildHtmlHeadTags()
+     */
     public function buildHtmlHeadTags()
     {
         $tags = parent::buildHtmlHeadTags();
