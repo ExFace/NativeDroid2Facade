@@ -72,6 +72,12 @@ class nd2Button extends nd2AbstractElement
         
         return $output;
     }
+    
+    public function buildHtmlHeadTags()
+    {
+        $tags = parent::buildHtmlHeadTags();
+        return array_merge($tags, $this->buildHtmlHeadTagsForCustomScriptIncludes());
+    }
 
     protected function buildJsClickShowDialog(ActionInterface $action, AbstractJqueryElement $input_element)
     {
