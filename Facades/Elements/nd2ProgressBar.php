@@ -30,7 +30,7 @@ class nd2ProgressBar extends nd2Display
      * {@inheritDoc}
      * @see \exface\NativeDroid2Facade\Facades\Elements\nd2Value::buildJs()
      */
-    public function buildJs()
+    public function buildJs($jqm_page_id = null)
     {
         return '';
     }
