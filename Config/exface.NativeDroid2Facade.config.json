@@ -46,7 +46,7 @@
     ],
     
     "LIBS.DATATABLES.CORE.JS": "npm-asset/flot-charts/",
-    "LIBS.DATATABLES.CORE.CSS": "bower-asset/datatables.net-dt/css/jquery.dataTables.min.css",
+    "LIBS.DATATABLES.CORE.CSS": "npm-asset/datatables.net-dt/css/jquery.dataTables.min.css",
     "LIBS.DATATABLES.ROWGROUP.JS": "npm-asset/datatables.net-rowgroup/js/dataTables.rowgroup.min.js",
     "LIBS.DATATABLES.ROWGROUP.CSS": "npm-asset/datatables.net-rowgroup-bs/css/rowGroup.bootstrap.min.css",
     "LIBS.DATATABLES.RESPONSIVE.JS": "npm-asset/datatables.net-responsive/js/dataTables.responsive.min.js",
