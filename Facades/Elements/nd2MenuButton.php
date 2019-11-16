@@ -22,6 +22,16 @@ class nd2MenuButton extends nd2AbstractElement
     /**
      * 
      * {@inheritDoc}
+     * @see \exface\Core\Facades\AbstractAjaxFacade\Elements\AbstractJqueryElement::buildHtmlHeadTags()
+     */
+    public function buildHtmlHeadTags()
+    {
+        return array_merge(parent::buildHtmlHeadTags(), $this->getFacade()->getElement($this->getWidget()->getMenu())->buildHtmlHeadTags());
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
      * @see \exface\Core\Facades\AbstractAjaxFacade\Elements\AbstractJqueryElement::buildHtml()
      */
     public function buildHtml()
