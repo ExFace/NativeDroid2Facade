@@ -79,7 +79,7 @@ class nd2DataMatrixOld extends nd2DataTable
         // add the filters
         foreach ($widget->getFilters() as $fw) {
             if (! is_null($fw->getValue())) {
-                $ds->addFilterFromString($fw->getAttributeAlias(), $fw->getValue());
+                $ds->getFilters()->addConditionFromString($fw->getAttributeAlias(), $fw->getValue());
             }
         }
         // add the sorters
