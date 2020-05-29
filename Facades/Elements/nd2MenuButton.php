@@ -76,5 +76,15 @@ HTML;
     {
         return $this->getFacade()->getElement($button)->buildJsClickFunctionName();
     }
+    
+    /**
+     *
+     * {@inheritdoc}
+     * @see JqueryButtonTrait::buildJsCloseDialog()
+     */
+    protected function buildJsCloseDialog($widget, $input_element)
+    {
+        return '';
+    }
 }
 ?>
